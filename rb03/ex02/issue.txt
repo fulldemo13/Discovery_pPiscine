@@ -1,0 +1,1 @@
+Se puede realizar sin usar break
