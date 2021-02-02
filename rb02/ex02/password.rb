@@ -1,11 +1,11 @@
 #!/usr/bin/ruby
 
-password = "Ruby rules"
+password = "ruby mola"
 
 answer = gets.chomp
 
 if password === answer
-	puts "ACCES GRANTED."
+	puts "ACCESO PERMITIDO."
 else
-	puts "ACCES DENIED."
+	puts "ACCESO DENEGADO."
 end

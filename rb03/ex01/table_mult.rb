@@ -1,5 +1,5 @@
 #!/usr/bin/ruby
-puts "Please enter a number"
+puts "Introduzca un número"
 number = gets.to_i
 i = 0;
 if number > 10

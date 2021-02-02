@@ -1,9 +1,9 @@
 #!/usr/bin/ruby
 
-print "What you gotta say ? : "
+print "¿Qué quiere decir? : "
 word = gets.chomp
 i = 0;
 while word != "STOP"
-	print "I got that! Anything else ? : "
+	print "Entendido. ¿Algo más? : "
 	word = gets.chomp
 end

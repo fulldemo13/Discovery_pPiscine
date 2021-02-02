@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
-print "Hey, what's your first name ? : "
+print "Hola, ¿Cuál es tu nombre? : "
 first_name = gets.chomp
-print "And your last name ? : "
+print "¿Y tu apellido? : "
 last_name = gets.chomp
-puts "Well, pleased to meet you #{first_name} #{last_name}."
+puts "Encantado de conocerte, #{first_name} #{last_name}."

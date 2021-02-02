@@ -2,9 +2,9 @@
 
 number = gets.to_i
 if number < 0
-	puts "This number is negative."
+	puts "Este número es negativo"
 elsif number === 0
-	puts "This number is positive and negative."
+	puts "Este número es negativo y positivo"
 else
-	puts "This number is positive."
+	puts "Este número es positivo"
 end

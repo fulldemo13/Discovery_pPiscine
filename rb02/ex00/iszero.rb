@@ -2,7 +2,7 @@
 
 number = gets.to_i
 if number === 0
-	puts "This number is equal to 0."
+	puts "Este número es igual a cero"
 else
-	puts "This number is different to 0"
+	puts "Este número es diferente a cero"
 end
