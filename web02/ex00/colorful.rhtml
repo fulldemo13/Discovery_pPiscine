@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>colorful</title>
+	<style>
+		.pinkbody {
+			background-color: pink;
+			text-align: center;
+		}
+		.myfont{
+			font-family: 'Courier New';
+			color: #371e73;
+		}
+		.cat{
+			border-radius: 50%;
+			width: 500px;
+			border: 2px dotted white;
+		}
+		.purple{
+			width: 79%;
+			height: 380px;
+			background-color: #8a6fee;
+		}
+		.menu{
+			width: 20%;
+			height: 380px;
+			background-color: #d75464;
+			margin-right: 1%;
+		}
+		.footer{
+			background-color: #5f9b96;
+			color: white;
+			margin: 0 2%;
+			height: 100px;
+		}
+		.container{
+			display: flex;
+			margin: 0 2% 0 2%;
+		}
+	</style>
+</head>
+<body class="pinkbody myfont">
+	<h1>Mise en beauté</h1>
+	<h3>Je suis un sous-titre</h3>
+	<div class="container">
+		<div class="menu">
+			<h1><%= RUBY_VERSION %></h1>
+		</div>
+		<div class="purple">
+			<img class="cat" title="Norminette" alt="Norminett 42 cat" src="https://i2.wp.com/blog.pelt10.fr/wp-content/uploads/2019/04/IMG_20180717_190431.jpg?resize=1024%2C768&ssl=1">
+		</div>
+	</div>
+	<div class="myfont footer">
+		<h3>Un footer.</h3>
+	</div>
+</body>
+</html>

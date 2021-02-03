@@ -5,7 +5,7 @@ difficulty = 4
 #puts num
 print "Introduzca un número: "
 input = gets.to_i
-while difficulty > 0
+while difficulty > 1
 	difficulty -= 1
 	if input < 0 or input > 100
 		puts "Ese número no esta comprendido entre 0 y 100"
