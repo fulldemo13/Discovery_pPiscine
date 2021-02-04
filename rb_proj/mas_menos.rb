@@ -1,6 +1,6 @@
 #!/usr/bin/ruby
 
-num = rand(100)
+num = rand(101)
 difficulty = 4
 #puts num
 print "Introduzca un número: "

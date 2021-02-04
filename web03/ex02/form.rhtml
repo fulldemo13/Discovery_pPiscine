@@ -14,15 +14,36 @@
 		<input type="text" id="lname" name="lname"><br>
 		<label for="age">Your age:</label><br>
 		<input type="text" id="age" name="age"><br>
-		<input type="submit" value="Submit">
+		<input type="submit" value="Validar">
 	</form>
-	<p>Hola%<%= servlet_request.query["fname"] %>%<%= servlet_request.query["lname"] %></p>
-	<p>
+	<%
+		array=[[42, "Ferran", "Ulldemolins"], [5, "David", "Garcia"], [90, "Gonzalo", "Lopez"]]
+		array.push([servlet_request.query["age"].to_i, servlet_request.query["fname"] , servlet_request.query["lname"]])
+		array = array.sort
+	%>
+	<p>Hola 
+		<%= servlet_request.query["fname"] %>, tienes más edad que 
 		<%=
-			array=[]
-			array.push(servlet_request.query["fname"])
-			array
+			age = servlet_request.query["age"].to_i
+			i = 0
+			while age > array[i][0]
+				i += 1
+				break if i == 3
+			end
+			i
 		%>
+		personas y menos edad que 
+		<%=
+			i = array.length - 1
+			y = 0
+			while age < array[i][0]
+				i -= 1
+				y += 1
+				break if i == -1
+			end
+			y
+		%>
+		personas.
 	</p>
 </body>
 </html>

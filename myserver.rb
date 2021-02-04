@@ -4,7 +4,7 @@
 require 'webrick'
 include WEBrick
 
-options = { Port: 8081, DocumentRoot: '.' }
+options = { Port: 8080, DocumentRoot: '.' }
 
 s = WEBrick::HTTPServer.new(options)
 HTTPUtils::DefaultMimeTypes.store('rhtml', 'text/html')
@@ -15,3 +15,4 @@ siglist &= Signal.list.keys
 siglist.each do |sig|
   Signal.trap(sig, shut)
 end
+s.start
