@@ -1,12 +1,17 @@
 #!/usr/bin/ruby
 
+res = ""
 if ARGV.length != 1
 	puts "none"
 else
-	ARGV[0].chars.each do |c|
+	ARGV[0].downcase.chars.each do |c|
 		if c == "z"
-			print "z"
+			res += "z"
 		end
 	end
-	print "\n"
+	if res.length == 0
+		puts "none"
+	else
+		puts res
+	end
 end

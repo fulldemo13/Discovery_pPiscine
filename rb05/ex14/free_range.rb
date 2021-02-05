@@ -3,10 +3,10 @@
 if ARGV.length != 2
 	puts "none"
 else
-	num = ARGV[1].scan(ARGV[0]).length
-	if num == 0
+	array = (ARGV[0].to_i..ARGV[1].to_i).to_a
+	if array.length == 0
 		puts "none"
 	else
-		puts num
+		p array
 	end
 end
