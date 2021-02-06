@@ -2,7 +2,7 @@
 
 def encontrar_pelirrojos hash
 	res = []
-	hash.select { |name, color| color == :pelirrojo ? res.push(name) :0 }
+	hash.select { |name, color| color == :pelirrojo ? res.push(name) : 0 }
 	res
 end
 

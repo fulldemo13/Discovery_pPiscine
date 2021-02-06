@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+</head>
+<body>
+	<h1>New text.txt</h1>
+	<p>
+		<%
+			File.open("/Users/fulldemo/Documents/42Curs/Discovery_pPiscine/web04/ex01/text.txt", "w") { |f| f.write "#{Time.now} - User logged in\n" }
+		%>
+	</p>
+</body>
+</html>

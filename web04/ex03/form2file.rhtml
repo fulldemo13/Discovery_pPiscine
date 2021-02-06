@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+</head>
+<body>
+	<h2>Formulario</h2>
+	<form>
+		<label for="filename">File name:</label><br>
+		<input type="text" id="filename" name="filename"><br>
+		<label for="line">Text:</label><br>
+		<input type="text" id="line" name="line"><br>
+		<label for="value">Line:</label><br>
+		<input type="text" id="value" name="value"><br>
+		<input type="submit" value="Validar">
+	</form>
+	<%
+		file = servlet_request.query["filename"]
+		line = servlet_request.query["line"]
+		value = servlet_request.query["value"].to_i
+		if file != nil && value >= 0	
+			array = []
+			File.open("/Users/fulldemo/Documents/42Curs/Discovery_pPiscine/web04/ex03/#{file}", "r").each_line {|line| array << line}
+			array[value - 1] = line
+			File.open("/Users/fulldemo/Documents/42Curs/Discovery_pPiscine/web04/ex03/#{file}", "w") do |f|
+				f.puts(array)
+			end
+		end
+	%>
+</body>
+</html>
