@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Juego de 3 en raya</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<link href="web_prj.css" rel="stylesheet" type="text/css" />
+	</head>
+	<body align="center">
+		<h1>TRES EN RAYA</h1>
+		<div>
+			<table align="center" border="1">
+				<tr>
+					<td id="c0" onclick="pcelda(0)"></td>
+					<td id="c1" onclick="pcelda(1)"></td>
+					<td id="c2" onclick="pcelda(2)"></td>
+				</tr>
+				<tr>
+					<td id="c3" onclick="pcelda(3)"></td>
+					<td id="c4" onclick="pcelda(4)"></td>
+					<td id="c5" onclick="pcelda(5)"></td>
+				</tr>
+				<tr>
+					<td id="c6" onclick="pcelda(6)"></td>
+					<td id="c7" onclick="pcelda(7)"></td>
+					<td id="c8" onclick="pcelda(8)"></td>
+				</tr>
+			</table>
+		</div>
+		<div id="p1" style="display: none;">
+			<h3 class="middle">¡Ha Ganado el Jugador 1!</h3>
+		</div>
+		<div id="p2" style="display: none;">
+			<h3 class="middle">¡Ha Ganado el Jugador 2!</h3>
+		</div>
+		<div id="empate" style="display: none;">
+			<h3 class="middle">¡Empate!</h3>
+		</div>
+		<p style="margin-top: 400px;">
+			<a href="javascript:location.reload()">
+			<button>Reiniciar</button></a>
+		</p>
+		<script src="web_prj3x3.js"></script>
+	</body>
+</html>

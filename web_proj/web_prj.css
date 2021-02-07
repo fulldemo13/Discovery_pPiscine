@@ -1,0 +1,16 @@
+td{
+	font-size: 5rem;
+	font-family: 'Open Sans', 'Helvetica Neue', sans-serif;
+	width: 100px;
+	height: 100px;
+	cursor: pointer;
+}
+div{
+	position: fixed;
+	left: 50%;
+	transform: translate(-50%, 0%);
+}
+.middle{
+	margin-top: 46%;
+	color: white;
+}
