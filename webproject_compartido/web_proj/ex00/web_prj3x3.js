@@ -7,21 +7,20 @@ function dibujar()
 {
 	for(i=0; i<9; i++)
 	{
-		if(mapa[i] == 1)
+		if (mapa[i])
 		{
-			document.getElementById("block_"+i).style="color: #e78268; cursor: default";
-			document.getElementById("block_"+i).innerHTML="X";
 			document.getElementById("block_"+i).onmouseout="";
 			document.getElementById("block_"+i).onmouseover="";
-
-
-		}
-		if(mapa[i] == 2)
-		{
-			document.getElementById("block_"+i).style="color: #8bb4e4; cursor: default";
-			document.getElementById("block_"+i).innerHTML="O";
-			document.getElementById("block_"+i).onmouseout="";
-			document.getElementById("block_"+i).onmouseover="";
+			if(mapa[i] == 1)
+			{
+				document.getElementById("block_"+i).style="color: #e78268; cursor: default";
+				document.getElementById("block_"+i).innerHTML="X";
+			}
+			else
+			{
+				document.getElementById("block_"+i).style="color: #8bb4e4; cursor: default";
+				document.getElementById("block_"+i).innerHTML="O";
+			}
 		}
 	}
 }
