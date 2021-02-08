@@ -9,12 +9,11 @@
 <body>
 	<h1>Tres en raya</h1>
 	<br>
-	<div>
-		<button id="2player" class="button" onclick="dos_jugadores()">2 jugadores</button>
-		<button id="1player" class="button" onclick="un_jugador()" >Modo solitario</button>
+	<div id="start">
+		<button class="button" onclick="dos_jugadores()">2 jugadores</button>
+		<button class="button" onclick="un_jugador()" >Modo solitario</button>
 	</div>
 	<div class="container" id="juego">
-		<br><br>
 		<div class="zonadejuego">
 			<div id="block_0" class="block" onclick="pcelda(0)" onmouseover="s_on(this)" onmouseout="s_off(this)"></div>
 			<div id="block_1" class="block" onclick="pcelda(1)" onmouseover="s_on(this)" onmouseout="s_off(this)"></div>
@@ -35,6 +34,9 @@
 		<div class="middle" id="empate" >
 			<h2>¡Empate!</h2>
 		</div>
+		<a href="javascript:location.reload()">
+			<button class="button" style="margin: 40px;">Reiniciar</button>
+		</a>
 	</div>
 	<script src="web_prj3x3.js"></script>
   </body>
