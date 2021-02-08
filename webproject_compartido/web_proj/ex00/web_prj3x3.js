@@ -10,21 +10,34 @@ function dibujar()
 		if(mapa[i] == 1)
 		{
 			document.getElementById("block_"+i).style="color: #e78268; cursor: default";
-			document.getElementById("block_"+i).innerHTML="X";		
+			document.getElementById("block_"+i).innerHTML="X";
+			document.getElementById("block_"+i).onmouseout="";
+			document.getElementById("block_"+i).onmouseover="";
+
 
 		}
 		if(mapa[i] == 2)
 		{
 			document.getElementById("block_"+i).style="color: #8bb4e4; cursor: default";
 			document.getElementById("block_"+i).innerHTML="O";
+			document.getElementById("block_"+i).onmouseout="";
+			document.getElementById("block_"+i).onmouseover="";
 		}
 	}
 }
 
 function shad(celda)
 {
-	celda.innerHTML="X";
-	celda.style="color: #e78268"; 
+	if (jugador == 1)
+	{
+		celda.innerHTML="X";
+		celda.style="color: #e78268"; 
+	}
+	else
+	{
+		celda.innerHTML="O";
+		celda.style="color: #8bb4e4"; 
+	}
 }
 function soff(celda)
 {
