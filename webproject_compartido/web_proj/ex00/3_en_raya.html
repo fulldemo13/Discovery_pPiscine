@@ -7,10 +7,9 @@
 	</head>
 <body>
 		<h1>Tres en raya</h1>
-	<button>empezar</button>
-	<div class="container">
-		
-		<br>
+	<button id="menu" onclick="start">player vs player</button>
+	<button id="menu">player vs AI</button>
+	<div id="container" class="container">
 		<div class="zonadejuego">
 			<div id="block_0" class="block" onclick="pcelda(0)" onmouseover="s_on(this)" onmouseout="s_off(this)"></div>
 			<div id="block_1" class="block" onclick="pcelda(1)" onmouseover="s_on(this)" onmouseout="s_off(this)"></div>
@@ -23,8 +22,12 @@
 			<div id="block_8" class="block" onclick="pcelda(8)" onmouseover="s_on(this)" onmouseout="s_off(this)"></div>
 		</div>
 		<div class="middle" id="p1" >
-				<h3>¡Ha Ganado el Jugador 1!</h3>
-			</div>
+			<h3>¡Ha Ganado el Jugador 1!</h3>
+		</div>
+		<p style="margin-top: 300px;">
+			<a href="javascript:location.reload()">
+			<button>Reiniciar</button></a>
+		</p>
 	</div>
 	<script src="web_prj3x3.js"></script>
   </body>
