@@ -114,7 +114,7 @@ function AIempate(celda)
 	var ai_celda = Math.round(Math.random() * 9);
 	var espacios = numEspacios();
 	var print = 0;
-	var i = 1;
+	var i = 0;
 
 	if (mapa[celda] == 0)
 	{
@@ -130,7 +130,23 @@ function AIempate(celda)
 		}
 		else
 		{
-			while (i < 9 && !print)
+			while (i < 9 && !print) //Ver si gana
+			{
+				if (mapa[i] == 0)
+				{
+					mapa[i] = 2;
+					if (ganador() == 2)
+					{
+						mapa[i] = 2;
+						print = 1;
+					}
+					else
+						mapa[i] = 0;
+				}
+				i++;
+			}
+			i = 1
+			while (i < 9 && !print)					//Si pisa la jugada
 			{
 				print = checkCelda(celda + i);				
 				i++;
@@ -175,7 +191,7 @@ function pcelda(celda)
 		else
 			playerVSplayer(celda);
 		
-	dibujar();
+	dibujar()
 	var r = ganador();
 	switch(r)
 	{
