@@ -66,41 +66,111 @@ function s_on(celda)
 
 function s_off(celda)
 {
-celda.innerHTML="";
+	celda.innerHTML="";
 }
 
-function pcelda(celda)
+function AIrandom(celda)
 {
-	if (ai)
+	var ai_celda = Math.round(Math.random() * 9);
+
+	if (mapa[celda] == 0)
 	{
-		var ai_celda = Math.round(Math.random() * 9); 
-		if (mapa[celda] == 0)
-		{
-			mapa[celda]=1;
-		}
-		if (numEspacios() > 1)
+		mapa[celda]=1;
+	}
+	if (numEspacios() > 1)
+	{
+		while (mapa[ai_celda] != 0)
+			ai_celda = Math.round(Math.random() * 9);
+		mapa[ai_celda]=2;
+	}
+}
+
+function AImaster(celda)
+{
+	var ai_celda = Math.round(Math.random() * 9);
+	var espacios = numEspacios();
+	var print = 0;
+	var i = 1;
+
+	if (mapa[celda] == 0)
+	{
+		mapa[celda] = 1;
+	}
+	if (espacios > 1)
+	{
+		if (espacios > 7)
 		{
 			while (mapa[ai_celda] != 0)
 				ai_celda = Math.round(Math.random() * 9);
 			mapa[ai_celda]=2;
 		}
+		else
+		{
+			while (i < 7)
+			{
+				if (mapa[celda + i] == 0)
+				{
+					mapa[celda + i] = 1;
+					if (ganador() == 1)
+					{
+						mapa[celda + i ] = 2;
+						print = 1;
+						break ;
+					}
+					else
+						mapa[celda + i ] = 0;
+				}					
+				i++;
+			}
+			while (celda >= 0 && !print)
+			{
+				if (mapa[celda] == 0)
+				{
+					mapa[celda] = 1;
+					if (ganador() == 1)
+					{
+						mapa[celda] = 2;
+						print = 1;
+						break ;
+					}
+					else
+						mapa[celda] = 0;
+				}					
+				celda--;
+			}
+			if (!print)
+			{
+				while (mapa[ai_celda] != 0)
+					ai_celda = Math.round(Math.random() * 9);
+				mapa[ai_celda]=2;
+			}
+
+		}
+	}
+}
+
+function playerVSplayer(celda)
+{
+	if (jugador==1)
+	{
+		mapa[celda]=1;
+		jugador=2;
 	}
 	else
 	{
-		if (mapa[celda]==0)
-		{
-			if (jugador==1)
-			{
-				mapa[celda]=1;
-				jugador=2;
-			}
-			else
-			{
-				mapa[celda]=2;
-				jugador=1; 
-			}
-		}
+		mapa[celda]=2;
+		jugador=1; 
 	}
+}
+
+function pcelda(celda)
+{
+	if (mapa[celda] == 0)
+		if (ai)
+			AImaster(celda);
+		else
+			playerVSplayer(celda);
+		
 	dibujar();
 	var r = ganador();
 	switch(r)
