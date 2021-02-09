@@ -85,7 +85,25 @@ function AIrandom(celda)
 	}
 }
 
-function AImaster(celda)
+function checkCelda(celda)
+{
+	var print = 0;
+
+	if (mapa[celda] == 0)
+	{
+		mapa[celda] = 1;
+		if (ganador() == 1)
+		{
+			mapa[celda] = 2;
+			print = 1;
+		}
+		else
+			mapa[celda] = 0;
+	}
+	return print;
+}
+
+function AIempate(celda)
 {
 	var ai_celda = Math.round(Math.random() * 9);
 	var espacios = numEspacios();
@@ -106,36 +124,14 @@ function AImaster(celda)
 		}
 		else
 		{
-			while (i < 7)
+			while (i < 7 && !print)
 			{
-				if (mapa[celda + i] == 0)
-				{
-					mapa[celda + i] = 1;
-					if (ganador() == 1)
-					{
-						mapa[celda + i ] = 2;
-						print = 1;
-						break ;
-					}
-					else
-						mapa[celda + i ] = 0;
-				}					
+				print = checkCelda(celda + i);				
 				i++;
 			}
 			while (celda >= 0 && !print)
 			{
-				if (mapa[celda] == 0)
-				{
-					mapa[celda] = 1;
-					if (ganador() == 1)
-					{
-						mapa[celda] = 2;
-						print = 1;
-						break ;
-					}
-					else
-						mapa[celda] = 0;
-				}					
+				print = checkCelda(celda);					
 				celda--;
 			}
 			if (!print)
@@ -167,7 +163,7 @@ function pcelda(celda)
 {
 	if (mapa[celda] == 0)
 		if (ai)
-			AImaster(celda);
+			AIempate(celda);
 		else
 			playerVSplayer(celda);
 		
