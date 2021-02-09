@@ -91,14 +91,14 @@ function AIrandom(celda)
 	}
 }
 
-function checkCelda(celda)
+function checkCelda(celda, winner)
 {
 	var print = 0;
 
 	if (mapa[celda] == 0)
 	{
-		mapa[celda] = 1;
-		if (ganador() == 1)
+		mapa[celda] = winner;
+		if (ganador() == winner)
 		{
 			mapa[celda] = 2;
 			print = 1;
@@ -111,7 +111,7 @@ function checkCelda(celda)
 
 function AIempate(celda)
 {
-	var ai_celda = Math.round(Math.random() * 9);
+	var ai_celda = 4;		// poner cualquier impar si queremos que eliga una esquina si cogemos el centro
 	var espacios = numEspacios();
 	var print = 0;
 	var i = 0;
@@ -124,36 +124,31 @@ function AIempate(celda)
 	{
 		if (espacios > 7)
 		{
-			while (mapa[ai_celda] != 0)
-				ai_celda = Math.round(Math.random() * 9);
-			mapa[ai_celda]=2;
+			if (mapa[ai_celda] == 0)
+					mapa[ai_celda]=2;
+			else
+			{
+				while (mapa[ai_celda] != 0)						// para que coja las esquinas:      ...|| ai_celda % 2 == 1)
+					ai_celda = Math.round(Math.random() * 9);
+				mapa[ai_celda]=2;
+			}
 		}
 		else
 		{
 			while (i < 9 && !print) //Ver si gana
 			{
-				if (mapa[i] == 0)
-				{
-					mapa[i] = 2;
-					if (ganador() == 2)
-					{
-						mapa[i] = 2;
-						print = 1;
-					}
-					else
-						mapa[i] = 0;
-				}
+				print = checkCelda(i, 2);
 				i++;
 			}
 			i = 1
 			while (i < 9 && !print)					//Si pisa la jugada
 			{
-				print = checkCelda(celda + i);				
+				print = checkCelda(celda + i, 1);				
 				i++;
 			}
 			while (celda >= 0 && !print)
 			{
-				print = checkCelda(celda);					
+				print = checkCelda(celda, 1);					
 				celda--;
 			}
 			if (!print)
@@ -162,7 +157,6 @@ function AIempate(celda)
 					ai_celda = Math.round(Math.random() * 9);
 				mapa[ai_celda]=2;
 			}
-
 		}
 	}
 }
