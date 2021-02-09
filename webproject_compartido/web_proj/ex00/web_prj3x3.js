@@ -13,10 +13,16 @@ function	dos_jugadores()
 	document.getElementById("start").style="visibility:hidden";
 }
 
-function un_jugador()
+function ai_random()
 {
 	dos_jugadores();
 	ai = 1;
+}
+
+function ai_empate()
+{
+	dos_jugadores();
+	ai = 2;
 }
 
 function numEspacios()
@@ -124,7 +130,7 @@ function AIempate(celda)
 		}
 		else
 		{
-			while (i < 7 && !print)
+			while (i < 9 && !print)
 			{
 				print = checkCelda(celda + i);				
 				i++;
@@ -162,7 +168,9 @@ function playerVSplayer(celda)
 function pcelda(celda)
 {
 	if (mapa[celda] == 0)
-		if (ai)
+		if (ai == 1)
+			AIrandom(celda);
+		else if (ai == 2)
 			AIempate(celda);
 		else
 			playerVSplayer(celda);
@@ -175,9 +183,17 @@ function pcelda(celda)
 		break;
 		case 1:
 			document.getElementById("p1").style="visibility: visible;";
+			if (!ai)
+				document.getElementById("p1").innerHTML="<h2>¡Ha Ganado el Jugador 1!</h2>";
+			else
+				document.getElementById("p1").innerHTML="<h2>¡Has Ganado!</h2>";
 		break;
 		case 2:
 			document.getElementById("p2").style="visibility: visible; color: rgb(128, 190, 226);";
+			if (!ai)
+				document.getElementById("p2").innerHTML="<h2>¡Ha Ganado el Jugador 2!</h2>";
+			else
+				document.getElementById("p2").innerHTML="<h2>¡Has Perdido!</h2>";
 		break;
 		case 3:
 			document.getElementById("empate").style="visibility: visible; color: white;";
